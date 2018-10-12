@@ -1,0 +1,15 @@
+
+div.Comment {
+    padding: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 0.5px dashed rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+div.Comment:hover {
+    background-color: rgba(0,0,0,0.05);
+}

@@ -1,0 +1,28 @@
+* {
+    transition: all 0.3s;
+}
+.Post-base {
+    max-width: 720px;
+    min-width: 480px;
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin-top: 10px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.Post-title {
+    font-size: 1.5em;
+    padding: 20px;
+    padding-bottom: 0px;
+    /* cursor: pointer; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Post-content {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
