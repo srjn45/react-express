@@ -5,6 +5,7 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Posts from './components/post/Posts';
 import AddPost from './components/post/AddPost';
+import NotFound from "./components/not-found/NotFound";
 
 import './App.css';
 
@@ -18,6 +19,7 @@ class App extends Component {
           <div>
             <Route exact path="/" component={Posts} />
             <Route exact path="/addPost" component={AddPost} />
+            <Route component={NotFound} />
           </div>
         </Router>
         <Footer></Footer>
