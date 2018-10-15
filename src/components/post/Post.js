@@ -30,7 +30,7 @@ class Post extends Component {
                     <button onClick={this.deletePost}>x</button>
                 </div>
                 <div className="Post-content">{this.props.post.content}</div>
-                <AddComment pid={this.props.post.id}></AddComment>
+                <AddComment idx={this.props.idx} pid={this.props.post.id}></AddComment>
                 {this.props.showComments ? this.props.post.comments.map(c => <Comment pid={this.props.post.id} comment={c}></Comment>) : ''}
             </div>
         );

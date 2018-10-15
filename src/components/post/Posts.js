@@ -21,7 +21,7 @@ class Posts extends Component {
                 <Link to="/addPost">
                     <span className="fab">Add Post</span>
                 </Link>
-                {posts.map(p => <Post post={p} showComments={true}></Post>)}
+                {posts.map((p, idx) => <Post idx={idx} post={p} showComments={true}></Post>)}
             </div>
         )
     }
