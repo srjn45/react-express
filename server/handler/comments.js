@@ -9,13 +9,7 @@ module.exports = {
         readFile('posts', function (err, data) {
             let response = new Response(true);
             var posts = JSON.parse(data);
-            let index = -1;
-            for (let i = 0; i < posts.length; i++) {
-                if (posts[i].id == id) {
-                    index = i;
-                    break;
-                }
-            }
+            let index = Array.from(posts).findIndex(post => post.id == id);
             if (index >= 0) {
                 posts[index].comments.push(comment);
                 fs.writeFile('posts', JSON.stringify(posts), function (err) {
@@ -41,19 +35,10 @@ module.exports = {
         readFile('posts', function (err, data) {
             let response = new Response(true);
             var posts = JSON.parse(data);
-            let index = -1;
+            let index = Array.from(posts).findIndex(post => post.id == id);
             let jndex = -1;
-            for (let i = 0; i < posts.length; i++) {
-                if (posts[i].id == id) {
-                    index = i;
-                    for (let j = 0; j < posts[i].comments.length; j++) {
-                        if (posts[i].comments[j].id == cid) {
-                            jndex = j;
-                            break;
-                        }
-                    }
-                    break;
-                }
+            if (index != -1) {
+                jndex = Array.from(posts[index].comments).findIndex(comment => comment.id == cid);
             }
             if (index >= 0 && jndex >= 0) {
                 posts[index].comments.splice(jndex, 1);
