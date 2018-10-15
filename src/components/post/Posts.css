@@ -1,21 +1,21 @@
 
 .fab {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: white;
-    border-radius: 20px;
-    padding: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 1.3em;
-    color: #000;
-    cursor: pointer;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s;
-    z-index: 10;
-  }
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 1.3em;
+  color: #000;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+  z-index: 10;
+}
   
-  .fab:hover {
-    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.3);
-  }
+.fab:hover {
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.3);
+}
