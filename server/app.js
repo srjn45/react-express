@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
 app.use('/', indexRouter);
-app.use('/addPost', indexRouter);
+app.use(/^\/(?!api\/)[\/A-Za-z0-9_-]*$/, indexRouter);
 app.use('/api/posts', postsRouter);
 
 // catch 404 and forward to error handler
