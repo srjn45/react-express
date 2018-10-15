@@ -12,11 +12,12 @@ export const getPosts = (dispatch) => {
 }
 
 // create
-export const addPost = (dispatch, post) => {
+export const addPost = (dispatch, post, history) => {
     axios.post('http://127.0.0.1:3000/api/posts', post).then(res => {
         let response = res.data;
         if (response.status) {
             dispatch({ type: "POST_ADDED", payload: response.payload });
+            history.replace('/');
         }
     });
 }

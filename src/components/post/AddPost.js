@@ -17,8 +17,8 @@ class AddPost extends Component {
 
     submitHandler(event) {
         event.preventDefault();
-        this.props.addPost({ title: event.target.title.value, content: event.target.content.value });
-        this.props.history.replace('/');
+        this.props.addPost({ title: event.target.title.value, content: event.target.content.value }, this.props.history);
+        // this.props.history.replace('/');
     }
 
     render() {
@@ -50,7 +50,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addPost: (post) => addPost(dispatch, post)
+        // temporary fix: passing history
+        addPost: (post, history) => addPost(dispatch, post, history)
     }
 }
 
