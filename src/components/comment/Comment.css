@@ -1,5 +1,5 @@
 
-div.Comment {
+.Comment {
     padding: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -10,6 +10,6 @@ div.Comment {
     transition: background-color 0.3s;
 }
 
-div.Comment:hover {
+.Comment:hover {
     background-color: rgba(0,0,0,0.05);
 }
