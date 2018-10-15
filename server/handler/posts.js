@@ -18,12 +18,10 @@ module.exports = {
         var id = req.params.id;
         readFile('posts', function (err, data) {
             let response = new Response(true);
-            var posts = JSON.parse(data);
-            for (let i = 0; i < posts.length; i++) {
-                if (posts[i].id == id) {
-                    response.payload = posts[i];
-                    break;
-                }
+            let posts = JSON.parse(data);
+            let matches = Array.from(posts).filter(post => post.id == id);
+            if (matches.length > 0) {
+                response.payload = matches[0];
             }
             if (response.payload == null) {
                 response.status = false;
@@ -51,13 +49,7 @@ module.exports = {
         readFile('posts', function (err, data) {
             let response = new Response(true);
             var posts = JSON.parse(data);
-            let index = -1;
-            for (let i = 0; i < posts.length; i++) {
-                if (posts[i].id == id) {
-                    index = i;
-                    break;
-                }
-            }
+            let index = Array.from(posts).findIndex(post => post.id == id);
             if (index >= 0) {
                 posts.splice(index, 1);
                 fs.writeFile('posts', JSON.stringify(posts), function (err) {
