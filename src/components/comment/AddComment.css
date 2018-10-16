@@ -1,4 +1,4 @@
-.App-comment-base > form {
+.Add-comment-base > form {
     margin: 5px;
     height: 30px;
     border-radius: 15px;
@@ -9,7 +9,7 @@
     align-items: stretch;
 }
 
-.App-comment-base > form > input {
+.Add-comment-base > form > input {
     flex: auto;
     font-size: 15px;
     padding-left: 10px;
@@ -17,7 +17,7 @@
     border: none;
 }
 
-.App-comment-base > form > button {
+.Add-comment-base > form > button {
     background-color: lightgray;
     border: none;
     cursor: pointer;

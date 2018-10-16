@@ -29,7 +29,7 @@ class AddComment extends Component {
 
     render() {
         return (
-            <div className="App-comment-base">
+            <div className="Add-comment-base">
                 {this.props.forms[this.props.idx] ?
                     <form onSubmit={this.submitHandler}>
                         <input type="text" value={this.props.forms[this.props.idx].comments.text} name="text" placeholder="Comment..." onChange={this.changeHandler} />
