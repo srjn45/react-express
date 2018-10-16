@@ -33,7 +33,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        deleteComment: (pid, cid) => deleteComment(dispatch, pid, cid)
+        deleteComment: (pid, cid) => dispatch(deleteComment(pid, cid))
     }
 }
 

@@ -51,7 +51,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         // temporary fix: passing history
-        addPost: (post, history) => addPost(dispatch, post, history)
+        addPost: (post, history) => dispatch(addPost(post, history))
     }
 }
 

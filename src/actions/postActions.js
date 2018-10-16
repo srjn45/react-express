@@ -1,33 +1,40 @@
 import axios from 'axios';
 
+import { POST_ADDED, POST_DELETED, POSTS_RECEIVED, dispatchAction } from "./types";
 
 // fetch
-export const getPosts = (dispatch) => {
-    axios.get('http://127.0.0.1:3000/api/posts').then(res => {
-        let response = res.data;
-        if (response.status) {
-            dispatch({ type: "POSTS_RECEIVED", payload: response.payload });
-        }
-    });
+export const getPosts = () => {
+    return dispatch => {
+        axios.get('http://127.0.0.1:3000/api/posts').then(res => {
+            let response = res.data;
+            if (response.status) {
+                dispatch(dispatchAction(POSTS_RECEIVED, response.payload));
+            }
+        });
+    };
 }
 
 // create
-export const addPost = (dispatch, post, history) => {
-    axios.post('http://127.0.0.1:3000/api/posts', post).then(res => {
-        let response = res.data;
-        if (response.status) {
-            dispatch({ type: "POST_ADDED", payload: response.payload });
-            history.replace('/');
-        }
-    });
+export const addPost = (post, history) => {
+    return dispatch => {
+        axios.post('http://127.0.0.1:3000/api/posts', post).then(res => {
+            let response = res.data;
+            if (response.status) {
+                dispatch(dispatchAction(POST_ADDED, response.payload));
+                history.replace('/');
+            }
+        });
+    };
 }
 
 // delete
-export const deletePost = (dispatch, pid) => {
-    axios.delete('http://127.0.0.1:3000/api/posts/' + pid).then(res => {
-        let response = res.data;
-        if (response.status) {
-            dispatch({ type: "POST_DELETED", payload: { pid: pid, res: response.payload } });
-        }
-    })
+export const deletePost = (pid) => {
+    return dispatch => {
+        axios.delete('http://127.0.0.1:3000/api/posts/' + pid).then(res => {
+            let response = res.data;
+            if (response.status) {
+                dispatch(dispatchAction(POST_DELETED, { pid: pid, res: response.payload }));
+            }
+        });
+    };
 }

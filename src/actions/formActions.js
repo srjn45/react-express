@@ -1,10 +1,18 @@
+import { RESET_FORM, ADD_FORM, COMMENT_CHANGE, dispatchAction } from "./types";
 
-export const resetForm = (dispatch, idx) => {
-    dispatch({ type: 'RESET_FORM', payload: { idx } });
+
+export const resetForm = (idx) => {
+    return dispatch => {
+        dispatch(dispatchAction(RESET_FORM, { idx }));
+    };
 }
-export const addForm = (dispatch) => {
-    dispatch({ type: 'ADD_FORM' });
+export const addForm = () => {
+    return dispatch => {
+        dispatch(dispatchAction(ADD_FORM));
+    };
 }
-export const commentTextChange = (dispatch, idx, comment) => {
-    dispatch({ type: 'COMMENT_CHANGE', payload: { idx, comment } });
+export const commentTextChange = (idx, comment) => {
+    return dispatch => {
+        dispatch(dispatchAction(COMMENT_CHANGE, { idx, comment }));
+    };
 }

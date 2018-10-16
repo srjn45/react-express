@@ -49,10 +49,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addComment: (pid, data, idx) => addComment(dispatch, pid, data, idx),
-        addForm: () => addForm(dispatch),
-        resetForm: (idx) => resetForm(dispatch, idx),
-        commentTextChange: (idx, comment) => commentTextChange(dispatch, idx, comment)
+        addComment: (pid, data, idx) => dispatch(addComment(pid, data, idx)),
+        addForm: () => dispatch(addForm()),
+        resetForm: (idx) => dispatch(resetForm(idx)),
+        commentTextChange: (idx, comment) => dispatch(commentTextChange(idx, comment))
     }
 }
 

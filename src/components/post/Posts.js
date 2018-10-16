@@ -36,7 +36,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getAllPosts: () => getPosts(dispatch)
+        getAllPosts: () => dispatch(getPosts())
     }
 }
 
