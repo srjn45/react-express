@@ -25,8 +25,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// bootstrap react app
 app.use('/', indexRouter);
+// if path doesn't start with /api let react router take over
 app.use(/^\/(?!api\/)[\/A-Za-z0-9_-]*$/, indexRouter);
+// all the call with /api will be handled by express router
 app.use('/api/posts', postsRouter);
 
 // catch 404 and forward to error handler
