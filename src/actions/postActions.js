@@ -5,7 +5,7 @@ import { POST_ADDED, POST_DELETED, POSTS_RECEIVED, dispatchAction } from "./type
 // fetch
 export const getPosts = () => {
     return dispatch => {
-        axios.get('http://127.0.0.1:3000/api/posts').then(res => {
+        return axios.get('http://127.0.0.1:3000/api/posts').then(res => {
             let response = res.data;
             if (response.status) {
                 dispatch(dispatchAction(POSTS_RECEIVED, response.payload));
@@ -17,7 +17,7 @@ export const getPosts = () => {
 // create
 export const addPost = (post, history) => {
     return dispatch => {
-        axios.post('http://127.0.0.1:3000/api/posts', post).then(res => {
+        return axios.post('http://127.0.0.1:3000/api/posts', post).then(res => {
             let response = res.data;
             if (response.status) {
                 dispatch(dispatchAction(POST_ADDED, response.payload));
@@ -30,7 +30,7 @@ export const addPost = (post, history) => {
 // delete
 export const deletePost = (pid) => {
     return dispatch => {
-        axios.delete('http://127.0.0.1:3000/api/posts/' + pid).then(res => {
+        return axios.delete('http://127.0.0.1:3000/api/posts/' + pid).then(res => {
             let response = res.data;
             if (response.status) {
                 dispatch(dispatchAction(POST_DELETED, { pid: pid, res: response.payload }));
