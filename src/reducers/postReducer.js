@@ -4,10 +4,10 @@ export default function postReducer(state = { posts: [] }, action) {
             return { ...state, posts: action.payload }
         }
         case 'POST_ADDED': {
-            return { posts: state.posts.concat(action.payload) }
+            return { ...state, posts: state.posts.concat(action.payload) }
         }
         case 'POST_DELETED': {
-            return { posts: state.posts.filter(post => post.id != action.payload.pid) }
+            return { ...state, posts: state.posts.filter(post => post.id != action.payload.pid) }
         }
         case 'COMMENT_ADDED': {
             let index = state.posts.findIndex(post => post.id == action.payload.pid);
